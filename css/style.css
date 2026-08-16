@@ -892,9 +892,134 @@ strong {
   transform: translateY(0);
 }
 
+/* ========== Journey Section ========== */
+.journey-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(171, 109, 74, 0.03) 100%);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.journey-card {
+  padding: 1.8rem;
+  border-radius: var(--radius-small);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 26px rgba(17, 17, 17, 0.02);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.journey-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(171, 109, 74, 0.3);
+  box-shadow: 0 24px 50px rgba(17, 17, 17, 0.04);
+}
+
+.journey-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.journey-card .stat {
+  margin: 0 0 0.6rem 0;
+  color: var(--accent-strong);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.journey-card .meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.journey-detail {
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--line);
+}
+
+.journey-detail h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.journey-detail p {
+  margin-bottom: 1.5rem;
+  max-width: 65ch;
+}
+
+.journey-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.journey-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.journey-meta .meta-label {
+  display: block;
+  margin: 0;
+  color: var(--soft);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.journey-meta p {
+  margin: 0;
+}
+
 /* ========== CV Section ========== */
 .cv-section {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(171, 109, 74, 0.04) 100%);
+}
+
+.cv-card {
+  max-width: 620px;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px rgba(23, 23, 23, 0.06);
+}
+
+.cv-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.cv-label {
+  margin: 0;
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cv-content > p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cv-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .cv-container {
@@ -940,7 +1065,12 @@ strong {
   .project,
   .project.reverse,
   .skills-grid,
-  .contact-list {
+  .contact-list,
+  .journey-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1023,6 +1153,19 @@ strong {
   .cv-download .button {
     width: 100%;
     min-width: unset;
+  }
+
+  .cv-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .cv-actions .button {
+    width: 100%;
+  }
+
+  .journey-card {
+    padding: 1.5rem;
   }
 
   .contact-form {
