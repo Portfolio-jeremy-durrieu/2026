@@ -842,6 +842,12 @@ strong {
   word-break: break-word;
 }
 
+.contact-list .contact-item:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(100%, 540px);
+}
+
 .copy-email {
   justify-self: center;
   margin-top: 1rem;
