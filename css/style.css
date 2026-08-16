@@ -351,10 +351,13 @@ strong {
 }
 
 .social-icon {
-  font-size: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: fill var(--transition);
 }
 
 .social-list a::after {
@@ -754,12 +757,22 @@ strong {
   box-shadow: 0 12px 32px rgba(171, 109, 74, 0.15);
 }
 
+.contact-item:hover .contact-icon,
+.contact-item:focus-visible .contact-icon {
+  color: var(--accent);
+}
+
 .contact-icon {
   font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  color: var(--text);
+  transition: color var(--transition);
 }
 
 .contact-label {
