@@ -12,7 +12,9 @@
   --accent: #ab6d4a;
   --accent-strong: #874f35;
   --accent-soft: rgba(171, 109, 74, 0.12);
+  --accent-light: #d4a574;
   --shadow: 0 24px 60px rgba(23, 23, 23, 0.08);
+  --shadow-lg: 0 32px 80px rgba(23, 23, 23, 0.12);
   --radius: 24px;
   --radius-small: 16px;
   --content-width: 1180px;
@@ -169,6 +171,21 @@ strong {
   font-family: "Manrope", sans-serif;
   font-size: 0.8rem;
   font-weight: 800;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.brand-mark.brand-photo {
+  background: linear-gradient(135deg, rgba(171, 109, 74, 0.2), rgba(171, 109, 74, 0.1));
+  border: 2px solid var(--accent);
+  padding: 0;
+}
+
+.brand-mark.brand-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .brand-name {
@@ -229,27 +246,34 @@ strong {
   min-height: 3rem;
   padding: 0.85rem 1.4rem;
   font-weight: 600;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition), color var(--transition);
 }
 
 .nav-cta,
 .button.primary {
-  background: var(--text);
-  color: #f7f4f2;
-  box-shadow: 0 12px 36px rgba(23, 23, 23, 0.12);
+  background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 36px rgba(171, 109, 74, 0.25);
+  border: none;
 }
 
 .button.secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.5);
   color: var(--text);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--accent);
 }
 
 .nav-cta:hover,
 .button:hover,
 .nav-cta:focus-visible,
 .button:focus-visible {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(171, 109, 74, 0.3);
+}
+
+.button.secondary:hover,
+.button.secondary:focus-visible {
+  background: rgba(171, 109, 74, 0.1);
 }
 
 .nav-toggle {
@@ -320,6 +344,17 @@ strong {
   position: relative;
   color: var(--text);
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--transition);
+}
+
+.social-icon {
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-list a::after {
@@ -333,6 +368,11 @@ strong {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition);
+}
+
+.social-list a:hover,
+.social-list a:focus-visible {
+  color: var(--accent);
 }
 
 .social-list a:hover::after,
@@ -351,9 +391,15 @@ strong {
   aspect-ratio: 0.86;
   padding: 1.3rem;
   border-radius: 28px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18));
-  border: 1px solid rgba(23, 23, 23, 0.08);
-  box-shadow: var(--shadow);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  border: 1px solid rgba(171, 109, 74, 0.2);
+  box-shadow: var(--shadow-lg);
+  transition: transform 400ms ease, box-shadow 400ms ease;
+}
+
+.portrait-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 100px rgba(171, 109, 74, 0.15);
 }
 
 .portrait-frame {
@@ -362,8 +408,8 @@ strong {
   height: 100%;
   overflow: hidden;
   border-radius: 24px;
-  background: linear-gradient(180deg, #efe8e0 0%, #e1dbd5 100%);
-  border: 1px solid rgba(23, 23, 23, 0.08);
+  background: linear-gradient(135deg, #efe8e0 0%, #e1dbd5 100%);
+  border: 1px solid rgba(171, 109, 74, 0.1);
 }
 
 .portrait-frame img {
@@ -676,15 +722,16 @@ strong {
   gap: 1.6rem;
   padding: clamp(1.8rem, 3vw, 2.5rem);
   border-radius: 28px;
-  border: 1px solid var(--line);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(171, 109, 74, 0.04));
-  box-shadow: var(--shadow);
+  border: 1px solid var(--accent);
+  background: linear-gradient(145deg, rgba(171, 109, 74, 0.08), rgba(255, 255, 255, 0.6));
+  box-shadow: 0 20px 60px rgba(171, 109, 74, 0.1);
 }
 
 .contact-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact-item {
@@ -693,15 +740,26 @@ strong {
   gap: 0.3rem;
   padding: 1.15rem 1rem;
   border-radius: var(--radius-small);
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid var(--line);
-  transition: transform var(--transition), border-color var(--transition);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(171, 109, 74, 0.15);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  align-items: center;
+  text-align: center;
 }
 
 .contact-item:hover,
 .contact-item:focus-visible {
-  transform: translateY(-2px);
-  border-color: rgba(171, 109, 74, 0.3);
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 32px rgba(171, 109, 74, 0.15);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .contact-label {
@@ -717,7 +775,8 @@ strong {
 }
 
 .copy-email {
-  justify-self: start;
+  justify-self: center;
+  margin-top: 1rem;
 }
 
 .site-footer {
@@ -757,6 +816,48 @@ strong {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ========== CV Section ========== */
+.cv-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(171, 109, 74, 0.04) 100%);
+}
+
+.cv-container {
+  margin-bottom: 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 50px rgba(23, 23, 23, 0.06);
+}
+
+.cv-embed {
+  display: block;
+  width: 100%;
+  height: 800px;
+  border: none;
+  border-radius: var(--radius-small);
+}
+
+.cv-download {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.cv-download .button {
+  min-width: 280px;
+}
+
+/* ========== Portrait Enhancement ========== */
+.portrait-frame {
+  background: linear-gradient(135deg, #f0e8e0 0%, #e8e0d8 100%);
+}
+
+.portrait-frame img {
+  object-fit: cover;
+  object-position: center top;
 }
 
 @media (max-width: 920px) {
@@ -839,6 +940,15 @@ strong {
   .footer-wrap {
     justify-content: center;
     text-align: center;
+  }
+
+  .cv-embed {
+    height: 600px;
+  }
+
+  .cv-download .button {
+    width: 100%;
+    min-width: unset;
   }
 }
 
