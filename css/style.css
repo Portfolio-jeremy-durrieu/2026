@@ -249,6 +249,23 @@ strong {
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition), color var(--transition);
 }
 
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  min-width: 2.9rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition), color var(--transition);
+}
+
 .nav-cta,
 .button.primary {
   background: linear-gradient(135deg, var(--accent-strong) 0%, var(--accent) 100%);
@@ -274,6 +291,14 @@ strong {
 .button.secondary:hover,
 .button.secondary:focus-visible {
   background: rgba(171, 109, 74, 0.1);
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent-strong);
+  background: rgba(171, 109, 74, 0.12);
+  box-shadow: 0 12px 28px rgba(171, 109, 74, 0.15);
 }
 
 .nav-toggle {
@@ -1106,6 +1131,10 @@ strong {
 
   .nav-cta {
     display: none;
+  }
+
+  .lang-toggle {
+    margin-left: 0.2rem;
   }
 }
 
